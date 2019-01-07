@@ -5,7 +5,7 @@ spring:
         driver-class-name: com.mysql.cj.jdbc.Driver
         platform: mysql
         url: jdbc:mysql://localhost:3306/webdemo?serverTimezone=UTC&useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: root
+        username: rootxb
         password: root123
         # 初始化连接池大小，最小，最大
         initialSize: 5
