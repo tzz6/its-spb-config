@@ -2,18 +2,10 @@
 zuul: 
   routes: 
     ###自定义服务转发规则(名称自定义)
-    api-base: 
-      ###当客户端请求http://127.0.0.1:80/api-base开头的都会转发到Base服务
-      path: /api-base/**
-      ###base服务别名 zuul默认整合ribbon 自动实现负载均衡
-      serviceId: its-spb-base-servers
+   
     api-order: 
       ###当客户端请求http://127.0.0.1:80/api-order开头的都会转发到Order服务
       path: /api-order/**
       ###order服务别名
       serviceId: its-spb-order-servers
-    api-order2: 
-      ###当客户端请求http://127.0.0.1:80/api-order开头的都会转发到Order服务
-      path: /api-order/**
-      ###order服务别名
-      serviceId: its-spb-order-servers
+    
