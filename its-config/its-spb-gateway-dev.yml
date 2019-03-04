@@ -1,5 +1,3 @@
-###yml再建一个配置文件，语法是三个横线“---”
----
 spring: 
   cloud:
     gateway:
@@ -30,5 +28,4 @@ spring:
           - Path=/api-order/**
         filters:
           - StripPrefix=1
-          - RequestTime=true
-  profiles: its-spb-geteway      
+          - RequestTime=true    
