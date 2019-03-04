@@ -1,0 +1,34 @@
+###yml再建一个配置文件，语法是三个横线“---”
+---
+spring: 
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+        ###自定义服务路由名称(名称自定义)
+      - id: its-spb-base-servers
+        ###lb代表从注册中心获取服务 整合ribbon 自动实现负载均衡
+        uri: lb://its-spb-base-servers
+        predicates:
+            ###当客户端请求http://127.0.0.1:80/api-base开头的都会转发到Base服务
+          - Path=/api-base/**
+        filters:
+            ###设置StripPrefix=1,去掉前缀,否则访问服务时会带上/api-base
+          - StripPrefix=1
+          ###设置PrefixPath=/mypath,添加前缀,访问服务时会带上/mypath
+          ###- PrefixPath=/mypath
+          - RequestTime=true
+        ###自定义服务路由名称(名称自定义)
+      - id: its-spb-order-servers
+        ###lb代表从注册中心获取服务 整合ribbon 自动实现负载均衡
+        uri: lb://its-spb-order-servers
+        predicates:
+            ###当客户端请求http://127.0.0.1:80/api-order开头的都会转发到Order服务
+          - Path=/api-order/**
+        filters:
+          - StripPrefix=1
+          - RequestTime=true
+  profiles: its-spb-geteway      
